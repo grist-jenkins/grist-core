@@ -15,7 +15,8 @@
     "test": "GRIST_SESSION_COOKIE=grist_test_cookie GRIST_TEST_LOGIN=1 TEST_SUPPORT_API_KEY=api_key_for_support TEST_CLEAN_DATABASE=true NODE_PATH=_build:_build/stubs:_build/ext mocha -g ${GREP_TEST:-''} _build/test/nbrowser/*.js _build/test/server/**/*.js _build/test/gen-server/**/*.js",
     "test:server": "GRIST_SESSION_COOKIE=grist_test_cookie NODE_PATH=_build:_build/stubs:_build/ext mocha _build/test/server/**/*.js _build/test/gen-server/**/*.js",
     "test:smoke": "NODE_PATH=_build:_build/stubs:_build/ext mocha _build/test/nbrowser/Smoke.js",
-    "test:docker": "./test/test_under_docker.sh"
+    "test:docker": "./test/test_under_docker.sh",
+    "build": "yarn run build:prod && yarn run install:python"
   },
   "keywords": [
     "grist",
@@ -25,6 +26,9 @@
   "author": {
     "name": "Grist Labs Inc.",
     "email": "info@getgrist.com"
+  },
+  "engines": {
+    "node": "14.x"
   },
   "private": false,
   "devDependencies": {
